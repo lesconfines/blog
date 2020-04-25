@@ -8,6 +8,7 @@ import config from "sapper/config/rollup.js";
 import pkg from "./package.json";
 import markdown from "@jackfranklin/rollup-plugin-markdown";
 import glob from "rollup-plugin-glob";
+import sveltePreprocess from "svelte-preprocess";
 
 const mode = process.env.NODE_ENV;
 const dev = mode === "development";
@@ -30,6 +31,7 @@ export default {
         "process.env.NODE_ENV": JSON.stringify(mode),
       }),
       svelte({
+        preprocess: sveltePreprocess({ postcss: true }),
         dev,
         hydratable: true,
         emitCss: true,
@@ -84,6 +86,7 @@ export default {
         "process.env.NODE_ENV": JSON.stringify(mode),
       }),
       svelte({
+        preprocess: sveltePreprocess({ postcss: true }),
         generate: "ssr",
         dev,
       }),
