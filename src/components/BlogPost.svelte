@@ -10,16 +10,17 @@
     font-size: 14px;
     line-height: 16px;
     color: var(--color-white);
+    margin-bottom: 14px;
   }
 
   article {
     width: 300px;
-    height: 406px;
     display: flex;
     flex-direction: column;
     border-radius: 20px;
     overflow: hidden;
     background-color: rgba(255, 255, 255, 0.11);
+    mix-blend-mode: normal;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
@@ -54,7 +55,7 @@
   }
 
   img {
-    height: 200px;
+    height: 150px;
     width: 100%;
     object-fit: cover;
   }

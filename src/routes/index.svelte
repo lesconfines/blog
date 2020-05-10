@@ -11,7 +11,8 @@
     width: 1032px;
     grid-template-columns: 300px 300px 300px;
     grid-gap: 38px 44px;
-    grid-auto-rows: 406px;
+    grid-auto-rows: auto;
+    justify-content: space-between;
   }
 </style>
 
