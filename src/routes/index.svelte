@@ -4,14 +4,19 @@
 </script>
 
 <style>
-  h1 {
-    background-color: var(--color-tertiary);
+  .content {
+    overflow-y: auto;
+    margin-top: 80px;
+    display: grid;
+    width: 1032px;
+    grid-template-columns: 300px 300px 300px;
+    grid-gap: 38px 44px;
+    grid-auto-rows: 406px;
   }
 </style>
 
-<h1>My Blog</h1>
-
-<!-- iterate through each post -->
-{#each posts as post}
-  <PostCard {post} />
-{/each}
+<div class="content">
+  {#each posts as post}
+    <PostCard {post} />
+  {/each}
+</div>

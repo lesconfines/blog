@@ -9,6 +9,7 @@ import pkg from "./package.json";
 import markdown from "@jackfranklin/rollup-plugin-markdown";
 import glob from "rollup-plugin-glob";
 import sveltePreprocess from "svelte-preprocess";
+import svg from "rollup-plugin-svg-import";
 
 const mode = process.env.NODE_ENV;
 const dev = mode === "development";
@@ -24,6 +25,7 @@ export default {
     input: config.client.input(),
     output: config.client.output(),
     plugins: [
+      svg({ stringify: true }),
       markdown(),
       glob(),
       replace({
@@ -79,6 +81,7 @@ export default {
     input: config.server.input(),
     output: config.server.output(),
     plugins: [
+      svg({ stringify: true }),
       markdown(),
       glob(),
       replace({

@@ -11,11 +11,19 @@
     flex-direction: column;
     flex: 1;
   }
+
+  div {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+  }
 </style>
 
 <Tailwind />
 
 <main>
   <Navbar {segment} />
-  <slot />
+  <div>
+    <slot />
+  </div>
 </main>

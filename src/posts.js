@@ -1,4 +1,5 @@
 import _ from "lodash";
+import moment from "moment";
 import all from "../posts/*.md";
 
 export const posts = _.chain(all) // begin a chain
@@ -12,7 +13,7 @@ function transform({ filename, html, metadata }) {
   const permalink = filename.replace(/\.md$/, "");
 
   // convert date string into a proper `Date`
-  const publicationDate = new Date(metadata.publicationDate);
+  const publicationDate = moment(metadata.publicationDate);
 
   // return the new shape
   return { ...metadata, filename, html, permalink, publicationDate };
