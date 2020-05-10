@@ -6,7 +6,7 @@
 <style>
   .content {
     overflow-y: auto;
-    margin-top: 80px;
+    margin-top: 150px;
     display: grid;
     width: 1032px;
     grid-template-columns: 300px 300px 300px;

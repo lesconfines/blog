@@ -15,6 +15,7 @@
     font-weight: bold;
     justify-content: space-between;
     padding: 0% 24%;
+    position: fixed;
     width: 100vw;
   }
 

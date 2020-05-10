@@ -6,11 +6,10 @@
 
 <style>
   a {
-    font-weight: 500;
+    font-weight: bold;
     font-size: 14px;
     line-height: 16px;
     color: var(--color-white);
-    width: 100%;
   }
 
   article {
@@ -21,6 +20,7 @@
     border-radius: 20px;
     overflow: hidden;
     background-color: rgba(255, 255, 255, 0.11);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   h1 {
@@ -50,7 +50,7 @@
     background-color: var(--color-primary);
     border-radius: 1px;
     border: 0px;
-    margin: 4px 0px 10px 0px;
+    margin: 4px 0px 8px 0px;
   }
 
   img {
@@ -76,7 +76,7 @@
   }
 
   .postFooter {
-    margin-top: 14px;
+    margin-top: 8px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
