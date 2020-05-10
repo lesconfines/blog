@@ -4,66 +4,81 @@
 
 <style>
   nav {
-    border-bottom: 1px solid rgba(255, 62, 0, 0.1);
-    font-weight: 300;
-    padding: 0 1em;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.11);
+    color: var(--color-white);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 1;
+    font-size: 24px;
+    font-weight: bold;
+    justify-content: space-between;
+    padding: 0% 24%;
+    width: 100vw;
   }
 
   ul {
-    margin: 0;
-    padding: 0;
-  }
-
-  /* clearfix */
-  ul::after {
-    content: "";
-    display: block;
-    clear: both;
+    align-items: center;
+    display: flex;
+    height: 7.5vh;
+    justify-content: flex-end;
   }
 
   li {
-    display: block;
-    float: left;
+    margin: 0px 15px;
   }
 
-  [aria-current] {
-    position: relative;
-    display: inline-block;
+  .current {
+    color: var(--color-primary);
+    text-decoration: underline;
   }
 
-  [aria-current]::after {
-    position: absolute;
-    content: "";
-    width: calc(100% - 1em);
-    height: 2px;
-    background-color: rgb(255, 62, 0);
-    display: block;
-    bottom: -1px;
+  .dot {
+    color: var(--color-primary);
   }
 
-  a {
-    text-decoration: none;
-    padding: 1em 0.5em;
-    display: block;
+  .blogName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 </style>
 
 <nav>
+  <div class="blogName">
+    Confin
+    <span class="dot">.</span>
+    dev
+  </div>
   <ul>
     <li>
-      <a aria-current={segment === undefined ? 'page' : undefined} href=".">
-        home
+      <!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
+		     the blog data when we hover over the link or tap it on a touchscreen -->
+      <a
+        class:current={segment === undefined}
+        rel="prefetch"
+        aria-current={segment === undefined ? 'page' : undefined}
+        href=".">
+        Home
       </a>
     </li>
-
-    <!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
     <li>
       <a
+        class:current={segment === 'about'}
         rel="prefetch"
-        aria-current={segment === 'blog' ? 'page' : undefined}
-        href="blog">
-        blog
+        aria-current={segment === 'about' ? 'page' : undefined}
+        href="about">
+        About
+      </a>
+    </li>
+    <li>
+      <a
+        class:current={segment === 'contact'}
+        rel="prefetch"
+        aria-current={segment === 'contact' ? 'page' : undefined}
+        href="contact">
+        Contact
       </a>
     </li>
   </ul>

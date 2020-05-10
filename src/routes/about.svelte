@@ -1,6 +1,6 @@
 <style>
   h1 {
-    @apply bg-black text-white;
+    background-color: var(--color-background);
   }
 </style>
 

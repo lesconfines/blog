@@ -1,16 +1,17 @@
 <script>
   import { posts } from "../posts";
+  import PostCard from "../components/BlogPost.svelte";
 </script>
+
+<style>
+  h1 {
+    background-color: var(--color-tertiary);
+  }
+</style>
 
 <h1>My Blog</h1>
 
 <!-- iterate through each post -->
 {#each posts as post}
-  <article>
-    <!-- link article to /posts/$permalink -->
-    <a href={`/${post.permalink}`}>
-      <h2>{post.title}</h2>
-      <p>{post.summary}</p>
-    </a>
-  </article>
+  <PostCard {post} />
 {/each}

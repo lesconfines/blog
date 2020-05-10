@@ -12,10 +12,10 @@ function transform({ filename, html, metadata }) {
   const permalink = filename.replace(/\.md$/, "");
 
   // convert date string into a proper `Date`
-  const date = new Date(metadata.date);
+  const publicationDate = new Date(metadata.publicationDate);
 
   // return the new shape
-  return { ...metadata, filename, html, permalink, date };
+  return { ...metadata, filename, html, permalink, publicationDate };
 }
 
 // provide a way to find a post by permalink
