@@ -1,6 +1,16 @@
+<script context="module">
+  export function preload({ params, query }) {
+    return this.fetch('posts.json')
+      .then(r => r.json())
+      .then(({ posts, meta }) => {
+        return { posts, meta }
+      })
+  }
+</script>
+
 <script>
-  import { posts } from "../posts";
-  import PostCard from "../components/BlogPost.svelte";
+  import { posts } from '../posts'
+  import PostCard from '../components/BlogPost.svelte'
 </script>
 
 <style>

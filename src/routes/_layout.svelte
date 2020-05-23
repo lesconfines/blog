@@ -1,8 +1,8 @@
 <script>
-  import Navbar from "../components/Navbar.svelte";
-  import Tailwind from "../components/Tailwind.svelte";
+  import Navbar from '../components/Navbar.svelte'
+  import Tailwind from '../components/Tailwind.svelte'
 
-  export let segment;
+  export let segment
 </script>
 
 <style>

@@ -1,0 +1,22 @@
+{
+  "overrides": [
+    {
+      "files": ["**/*.svelte"],
+      "processor": "svelte3/svelte3"
+    }
+  ],
+  "parser": "babel-eslint",
+  "env": {
+    "node": true,
+    "es6": true,
+    "es7": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "extends": ["prettier"],
+  "plugins": ["svelte3", "prettier"],
+  "rules": {
+    "prettier/prettier": ["error"]
+  }
+}

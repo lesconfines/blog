@@ -1,7 +1,7 @@
 <script>
-  export let post;
+  export let post
 
-  import ArrowRight from "../../static/rightArrow.svg";
+  import ArrowRight from '../../static/rightArrow.svg'
 </script>
 
 <style>
