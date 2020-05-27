@@ -1,7 +1,8 @@
 <script>
-  export let post
+  import moment from "moment";
+  export let post;
 
-  import ArrowRight from '../../static/rightArrow.svg'
+  import ArrowRight from "../../static/rightArrow.svg";
 </script>
 
 <style>
@@ -40,6 +41,7 @@
     font-size: 20px;
     line-height: 23px;
     color: var(--color-white);
+    text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -90,19 +92,19 @@
 </style>
 
 <article>
-  <img src={post.imageUrl} alt={`${post.title} cover picture`} />
+  <img src={post.feature_image} alt={`${post.title} cover picture`} />
   <div class="postContent">
     <section class="postMetadata">
-      <p>Author : {post.author}</p>
-      <p>Published : {post.publicationDate.format('DD-MM-YYYY')}</p>
+      <p>Author : {post.primary_author.name}</p>
+      <p>Published : {moment(post.updated_at).format('DD-MM-YYYY')}</p>
     </section>
     <section>
       <h1>{post.title}</h1>
       <hr />
-      <h2>{post.description}</h2>
+      <h2>{post.custom_excerpt}</h2>
     </section>
     <div class="postFooter">
-      <a href={`${post.permalink}`}>
+      <a href={`${post.id}`}>
         Learn more
         <svg
           class="test"

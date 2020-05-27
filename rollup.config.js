@@ -1,24 +1,28 @@
-import resolve from '@rollup/plugin-node-resolve'
-import replace from '@rollup/plugin-replace'
-import commonjs from '@rollup/plugin-commonjs'
-import svelte from 'rollup-plugin-svelte'
-import babel from 'rollup-plugin-babel'
-import { terser } from 'rollup-plugin-terser'
-import config from 'sapper/config/rollup.js'
-import pkg from './package.json'
-import markdown from '@jackfranklin/rollup-plugin-markdown'
-import glob from 'rollup-plugin-glob'
-import sveltePreprocess from 'svelte-preprocess'
-import svg from 'rollup-plugin-svg-import'
+require('dotenv').config();
 
-const mode = process.env.NODE_ENV
-const dev = mode === 'development'
-const legacy = !!process.env.SAPPER_LEGACY_BUILD
+import resolve from '@rollup/plugin-node-resolve';
+import replace from '@rollup/plugin-replace';
+import commonjs from '@rollup/plugin-commonjs';
+import svelte from 'rollup-plugin-svelte';
+import babel from 'rollup-plugin-babel';
+import { terser } from 'rollup-plugin-terser';
+import config from 'sapper/config/rollup.js';
+import pkg from './package.json';
+import markdown from '@jackfranklin/rollup-plugin-markdown';
+import glob from 'rollup-plugin-glob';
+import sveltePreprocess from 'svelte-preprocess';
+import svg from 'rollup-plugin-svg-import';
+
+const mode = process.env.NODE_ENV;
+const dev = mode === 'development';
+const legacy = !!process.env.SAPPER_LEGACY_BUILD;
+const GHOST_API_URL = process.env.GHOST_API_URL;
+const GHOST_API_KEY = process.env.GHOST_API_KEY;
 
 const onwarn = (warning, onwarn) =>
   (warning.code === 'CIRCULAR_DEPENDENCY' &&
     /[/\\]@sapper[/\\]/.test(warning.message)) ||
-  onwarn(warning)
+  onwarn(warning);
 
 export default {
   client: {
@@ -29,8 +33,14 @@ export default {
       markdown(),
       glob(),
       replace({
-        'process.browser': true,
-        'process.env.NODE_ENV': JSON.stringify(mode),
+        process: JSON.stringify({
+          browser: true,
+          env: {
+            NODE_ENV: mode,
+            GHOST_API_URL,
+            GHOST_API_KEY,
+          },
+        }),
       }),
       svelte({
         preprocess: sveltePreprocess({ postcss: true }),
@@ -40,15 +50,15 @@ export default {
       }),
       resolve({
         browser: true,
-        dedupe: [ 'svelte' ],
+        dedupe: ['svelte'],
       }),
       commonjs(),
 
       legacy &&
         babel({
-          extensions: [ '.js', '.mjs', '.html', '.svelte' ],
+          extensions: ['.js', '.mjs', '.html', '.svelte'],
           runtimeHelpers: true,
-          exclude: [ 'node_modules/@babel/**' ],
+          exclude: ['node_modules/@babel/**'],
           presets: [
             [
               '@babel/preset-env',
@@ -94,13 +104,13 @@ export default {
         dev,
       }),
       resolve({
-        dedupe: [ 'svelte' ],
+        dedupe: ['svelte'],
       }),
       commonjs(),
     ],
     external: Object.keys(pkg.dependencies).concat(
       require('module').builtinModules ||
-        Object.keys(process.binding('natives'))
+        Object.keys(process.binding('natives')),
     ),
 
     onwarn,
@@ -121,4 +131,4 @@ export default {
 
     onwarn,
   },
-}
+};

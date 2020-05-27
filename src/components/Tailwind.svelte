@@ -1,5 +1,5 @@
 <style global>
-  @import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap");
+  @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
 
   @tailwind base;
   @tailwind components;
@@ -16,7 +16,7 @@
   }
 
   * {
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
 
   body {

@@ -1,16 +1,24 @@
 <script context="module">
-  export function preload({ params, query }) {
-    return this.fetch('posts.json')
-      .then(r => r.json())
-      .then(({ posts, meta }) => {
-        return { posts, meta }
-      })
+  export async function preload() {
+    const res = await this.fetch(
+      `${process.env.GHOST_API_URL}/posts?key=${process.env.GHOST_API_KEY}&include=authors,tags`
+    );
+    const { posts, meta } = await res.json();
+
+    if (res.status === 200 && posts && meta) {
+      return { posts, meta };
+    } else {
+      this.error(res.status, "Error fetching posts from Ghost");
+    }
   }
 </script>
 
 <script>
-  import { posts } from '../posts'
-  import PostCard from '../components/BlogPost.svelte'
+  export let posts;
+  export let meta;
+  import PostCard from "../components/BlogPost.svelte";
+
+  console.log(posts, meta);
 </script>
 
 <style>

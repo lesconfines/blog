@@ -5,5 +5,5 @@ export default {
   primary: '#F4B354',
   secondary: '#015F67',
   tertiary: '#EF5467',
-  grey: '#DFE0DF'
-}
+  grey: '#DFE0DF',
+};
