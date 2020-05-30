@@ -17,8 +17,6 @@
   export let posts;
   export let meta;
   import PostCard from "../components/BlogPost.svelte";
-
-  console.log(posts, meta);
 </script>
 
 <style>
@@ -27,12 +25,18 @@
     margin-top: 150px;
     display: grid;
     width: 1032px;
-    grid-template-columns: 300px 300px 300px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 38px 44px;
     grid-auto-rows: auto;
     justify-content: space-between;
+    flex-wrap: wrap;
+    justify-items: center;
   }
 </style>
+
+<svelte:head>
+  <title>Confin.Dev</title>
+</svelte:head>
 
 <div class="content">
   {#each posts as post}

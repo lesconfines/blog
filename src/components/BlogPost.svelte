@@ -1,8 +1,8 @@
 <script>
   import moment from "moment";
-  export let post;
+  import { goto } from "@sapper/app";
 
-  import ArrowRight from "../../static/rightArrow.svg";
+  export let post;
 </script>
 
 <style>
@@ -23,6 +23,7 @@
     background-color: rgba(255, 255, 255, 0.11);
     mix-blend-mode: normal;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
   }
 
   h1 {
@@ -45,6 +46,7 @@
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   hr {
@@ -66,6 +68,9 @@
     flex: 1;
     padding: 8px 16px 0px 16px;
     border-top: 4px solid var(--color-tertiary);
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
   }
 
   .postMetadata {
@@ -91,7 +96,7 @@
   }
 </style>
 
-<article>
+<article on:click={() => goto(`${post.slug}`)}>
   <img src={post.feature_image} alt={`${post.title} cover picture`} />
   <div class="postContent">
     <section class="postMetadata">
