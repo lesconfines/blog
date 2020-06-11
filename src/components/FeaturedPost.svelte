@@ -15,7 +15,8 @@
   }
 
   article {
-    width: 300px;
+    width: 100%;
+    height: 358px;
     display: flex;
     flex-direction: column;
     border-radius: 20px;
@@ -57,7 +58,7 @@
 
   hr {
     height: 2px;
-    width: 230px;
+    width: 612px;
     background-color: var(--color-primary);
     border-radius: 1px;
     border: 0px;
@@ -65,7 +66,7 @@
   }
 
   img {
-    height: 150px;
+    height: 160px;
     width: 100%;
     object-fit: cover;
   }
