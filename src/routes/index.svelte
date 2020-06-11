@@ -22,9 +22,9 @@
 <style>
   .content {
     overflow-y: auto;
-    margin-top: 150px;
+    padding: 150px 15%;
     display: grid;
-    width: 1032px;
+    width: 100%;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 38px 44px;
     grid-auto-rows: auto;
@@ -42,4 +42,5 @@
   {#each posts as post}
     <PostCard {post} />
   {/each}
+  {@html meta}
 </div>
