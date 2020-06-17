@@ -11,7 +11,6 @@
         meta,
         featuredPost: posts.length > 0 ? posts[0] : null,
       };
-      console.log(t);
       return t;
     } else {
       this.error(res.status, "Error fetching posts from Ghost");

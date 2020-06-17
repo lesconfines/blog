@@ -26,6 +26,10 @@
     margin: 0px 15px;
   }
 
+  li:hover {
+    color: var(--color-primary);
+  }
+
   li:last-child {
     margin-right: 0px;
   }

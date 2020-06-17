@@ -103,7 +103,7 @@
   }
 </style>
 
-<article on:click={() => goto(`${post.slug}`)}>
+<article on:click={() => goto(`blog/${post.id}`)}>
   <img src={post.feature_image} alt={`${post.title} cover picture`} />
   <div class="postContent">
     <section class="postMetadata">
@@ -116,7 +116,7 @@
       <h2>{post.custom_excerpt}</h2>
     </section>
     <div class="postFooter">
-      <a href={`${post.id}`}>
+      <a href={`blog/${post.id}`} rel="prefetch">
         Learn more
         <svg
           class="test"
